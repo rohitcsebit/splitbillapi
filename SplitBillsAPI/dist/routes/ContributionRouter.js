@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const ContributionController_1 = require("../controllers/ContributionController");
+const router = (0, express_1.Router)();
+// router.post("/", createContribution);
+router.get("/user/:userId", ContributionController_1.getContributionsByUserId);
+router.get("/activity/:activityId", ContributionController_1.getContributionsByActivityId);
+router.post("/payment/:contributionId/pay", ContributionController_1.payContribution);
+router.post("/user/:userId/pay-all-contributions", ContributionController_1.payAllContributionsForUser);
+exports.default = router;
