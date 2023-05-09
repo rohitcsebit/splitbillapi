@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "b20ecdd4-0197-47bc-8ae9-b30e1b785790",
+		"name": "splitbillsapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8026672"
+	},
+	"item": [
+		{
+			"name": "UsersAPI",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Rohit1111\",\n  \"email\": \"rohit1111@example.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64553af11ad35bead7596ec1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ActivityAPI",
+			"item": [
+				{
+					"name": "Create a new activity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Cricket\",\n  \"totalBillAmount\": 100,\n  \"contributions\": [\n    {\n      \"userId\": \"645773a0ad7b7d98409a531c\",\n      \"amount\": 80\n    },\n    {\n      \"userId\": \"645773a8ad7b7d98409a531f\",\n      \"amount\": 20\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/activities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"activities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Activity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/activities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"activities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Activity by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/activities/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"activities",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "645774d2ad7b7d98409a5323"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Activity",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ContributionsAPI",
+			"item": [
+				{
+					"name": "Get all contribution by UserID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/contribution/user/645773a8ad7b7d98409a531f",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"contribution",
+								"user",
+								"645773a8ad7b7d98409a531f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all contribution by ActivityID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/contribution/activity/64595cb3d67ba9a61acd4efa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contribution",
+								"activity",
+								"64595cb3d67ba9a61acd4efa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Paying for a contribution by ContributionId",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/contribution/payment/64595cb3d67ba9a61acd4efd/pay",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"contribution",
+								"payment",
+								"64595cb3d67ba9a61acd4efd",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Paying for all contribution by UserID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/contribution/user/645773a8ad7b7d98409a531f/pay-all-contributions",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"contribution",
+								"user",
+								"645773a8ad7b7d98409a531f",
+								"pay-all-contributions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "http://localhost:3000/api",
+			"type": "string"
+		}
+	]
+}
